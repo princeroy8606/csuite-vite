@@ -62,14 +62,20 @@ const Auth = () => {
 
   useEffect(() => {
     const t2 = gsap.timeline();
+    const t4 = gsap.timeline();
     gsap.set(".auth-bg-svg", { autoAlpha: 1 });
     t2.to(
       ".auth-bg-svg",
       {
         xPercent: -110,
         duration: 1,
-        opacity:1,
-        stagger: { each: 2, repeat: -1, repeatDelay: 5 },
+        opacity: 1,
+        scale: 1,
+        stagger: {
+          each: 2,
+          repeat: -1,
+          repeatDelay: 5,
+        },
       },
       1
     );
@@ -79,7 +85,29 @@ const Auth = () => {
         xPercent: -210,
         duration: 1,
         stagger: { each: 2, repeat: -1, repeatDelay: 5 },
-        opacity:0,
+        opacity: 0,
+        scale: 0.5,
+        delay: 2,
+      },
+      1
+    );
+    t4.to(
+      ".circle-1",
+      {
+        width: "1.5rem",
+        x: -6,
+        duration: 0.4,
+        stagger: { each: 2, repeat: -1, repeatDelay: 5.7 },
+      },
+      1
+    );
+    t4.to(
+      ".circle-1",
+      {
+        width: "0.6rem",
+        duration: 0.3,
+        x: 0,
+        stagger: { each: 2, repeat: -1, repeatDelay: 5.8 },
         delay: 2,
       },
       1
@@ -109,6 +137,11 @@ const Auth = () => {
               alt="login-svg"
               className="auth-bg-svg"
             />
+          </div>
+          <div className="animated-toggle-bar">
+            <div className="circle-1 " />
+            <div className="circle-1 circle-2" />
+            <div className="circle-1 circle-3" />
           </div>
         </div>
         <div id="animation-fromRight" className="auth-right-cnt">
