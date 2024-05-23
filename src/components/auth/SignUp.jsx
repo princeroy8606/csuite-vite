@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import assets from "../assets/assets";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase/firebaseConfig";
 
 const SignUp = ({ toggleSlide }) => {
+  const [form, setForm] = useState({
+    email: "",
+    password: null,
+    name: "",
+    phoneNumber: "",
+  });
+  const [ispasswordConformed, setIspasswordConformed] = useState(false);
+  const [errorArray, setErrorArray] = useState([]);
+
+  const handlevalueChange = (type, value) => {
+    setForm({ ...form, [type]: value });
+  };
+
   return (
     <div className="auth-content-right">
       <div className="auth-logo-cnt">
@@ -15,13 +30,19 @@ const SignUp = ({ toggleSlide }) => {
       <p className="msg-content-text">Let’s get started with your account</p>
       <form className="login-form signup-form">
         <div className="login-input-cnt signup-input-cnt">
-          <input type="text" placeholder="Name" className="login-input" />
+          <input
+            type="text"
+            placeholder="Name"
+            className="login-input"
+            onChange={(e) => handlevalueChange("name", e.target.value)}
+          />
         </div>
         <div className="login-input-cnt signup-input-cnt">
           <input
             type="text"
             placeholder="Phone number, email or username"
             className="login-input"
+            onChange={(e) => handlevalueChange("phone", e.target.value)}
           />
           <img
             src={assets.Images.mail_icon}
@@ -34,6 +55,7 @@ const SignUp = ({ toggleSlide }) => {
             type="password"
             placeholder="Password"
             className="login-input"
+            onChange={(e) => handlevalueChange("password", e.target.value)}
           />
           <img
             src={assets.Images.Lock_Vector}
