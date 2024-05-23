@@ -30,7 +30,7 @@ const ForgotPassword = ({ toggleSlide }) => {
           </h2>
           <div className="login-input-cnt">
             <input
-              type="password"
+              type="text"
               placeholder="Enter your email"
               className="login-input"
             />
