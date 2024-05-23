@@ -9,6 +9,9 @@ import Eye from "./images/eye.png";
 import mail_icon from "./images/vector4.svg";
 import Apple from "./images/apple.svg";
 import Lock_Vector from "./images/lock-vector.svg";
+import Auth_Marquee_1 from "./images/auth-marquee-1.svg";
+import Auth_Marquee_2 from "./images/auth-marquee-2.svg";
+import Auth_Marquee_3 from "./images/auth-marquee-3.svg";
 
 const Images = {
   LoginSvg,
@@ -21,7 +24,10 @@ const Images = {
   Eye,
   mail_icon ,
   Apple,
-  Lock_Vector
+  Lock_Vector,
+  Auth_Marquee_1,
+  Auth_Marquee_2,
+  Auth_Marquee_3
 };
 
 export default { Images };

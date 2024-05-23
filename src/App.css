@@ -18,3 +18,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+::-webkit-scrollbar{
+  scrollbar-width: 0;
+  visibility: hidden;
+  display: none;
+}
