@@ -68,6 +68,7 @@ const Auth = () => {
       {
         xPercent: -110,
         duration: 1,
+        opacity:1,
         stagger: { each: 2, repeat: -1, repeatDelay: 5 },
       },
       1
@@ -78,6 +79,7 @@ const Auth = () => {
         xPercent: -210,
         duration: 1,
         stagger: { each: 2, repeat: -1, repeatDelay: 5 },
+        opacity:0,
         delay: 2,
       },
       1
