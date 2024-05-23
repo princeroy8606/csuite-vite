@@ -62,10 +62,27 @@ const Auth = () => {
 
   useEffect(() => {
     const t2 = gsap.timeline();
-    gsap.set('.auth-bg-svg',{autoAlpha:1})
-    t2.to('.auth-bg-svg',{xPercent:-110,duration:1,stagger:{each:2,repeat:-1,repeatDelay:5}},1)
-    t2.to('.auth-bg-svg',{xPercent:-210,duration:1,stagger:{each:2,repeat:-1,repeatDelay:5},delay:2},1)
-  },[]);
+    gsap.set(".auth-bg-svg", { autoAlpha: 1 });
+    t2.to(
+      ".auth-bg-svg",
+      {
+        xPercent: -110,
+        duration: 1,
+        stagger: { each: 2, repeat: -1, repeatDelay: 5 },
+      },
+      1
+    );
+    t2.to(
+      ".auth-bg-svg",
+      {
+        xPercent: -210,
+        duration: 1,
+        stagger: { each: 2, repeat: -1, repeatDelay: 5 },
+        delay: 2,
+      },
+      1
+    );
+  }, []);
 
   return (
     <div className="auth-container">
@@ -81,12 +98,12 @@ const Auth = () => {
               className="auth-bg-svg"
             />
             <img
-              src={assets.Images.Auth_Marquee_2}
+              src={assets.Images.Auth_Marquee_3}
               alt="login-svg"
               className="auth-bg-svg"
             />
             <img
-              src={assets.Images.Auth_Marquee_3}
+              src={assets.Images.Auth_Marquee_2}
               alt="login-svg"
               className="auth-bg-svg"
             />
