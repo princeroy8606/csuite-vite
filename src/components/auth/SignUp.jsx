@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import assets from "../assets/assets";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/firebaseConfig";
+import { createUserWithEmailAndPassword } from "@firebase/auth";
 
 const SignUp = ({ toggleSlide }) => {
   const [form, setForm] = useState({
@@ -13,9 +13,20 @@ const SignUp = ({ toggleSlide }) => {
   const [ispasswordConformed, setIspasswordConformed] = useState(false);
   const [errorArray, setErrorArray] = useState([]);
 
-  const handlevalueChange = (type, value) => {
+  const handleValueChange = (type, value) => {
     setForm({ ...form, [type]: value });
   };
+
+  const handleSignUp = async () => {
+    try {
+      const response = await createUserWithEmailAndPassword(auth,form?.email,form?.password);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  console.log(form);
 
   return (
     <div className="auth-content-right">
@@ -34,7 +45,7 @@ const SignUp = ({ toggleSlide }) => {
             type="text"
             placeholder="Name"
             className="login-input"
-            onChange={(e) => handlevalueChange("name", e.target.value)}
+            onChange={(e) => handleValueChange("name", e.target.value)}
           />
         </div>
         <div className="login-input-cnt signup-input-cnt">
@@ -42,7 +53,7 @@ const SignUp = ({ toggleSlide }) => {
             type="text"
             placeholder="Phone number, email or username"
             className="login-input"
-            onChange={(e) => handlevalueChange("phone", e.target.value)}
+            onChange={(e) => handleValueChange("phone", e.target.value)}
           />
           <img
             src={assets.Images.mail_icon}
@@ -55,7 +66,7 @@ const SignUp = ({ toggleSlide }) => {
             type="password"
             placeholder="Password"
             className="login-input"
-            onChange={(e) => handlevalueChange("password", e.target.value)}
+            onChange={(e) => handleValueChange("password", e.target.value)}
           />
           <img
             src={assets.Images.Lock_Vector}
@@ -75,7 +86,7 @@ const SignUp = ({ toggleSlide }) => {
             className="input-absolute-img"
           />
         </div>
-        <div className="fgrt-pswrd-btn">
+        <div className="fgrt-pswrd-btn" onClick={() => handleSignUp()}>
           <p>Sign Up</p>
         </div>
       </form>

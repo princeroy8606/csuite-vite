@@ -1,7 +1,17 @@
 import React from "react";
 import assets from "../assets/assets";
+import { auth } from "../../firebase/firebaseConfig";
+import { signInWithEmailAndPassword } from "@firebase/auth";
 
 const Login = ({ toggleSlide }) => {
+  const handleLogin = async()=>{
+    try {
+      const response = await signInWithEmailAndPassword(auth,'princeroy8606@gmail.com',"123456") 
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
     <div className="auth-content-right">
       <div className="auth-logo-cnt">
@@ -50,7 +60,7 @@ const Login = ({ toggleSlide }) => {
               Forgot Password?
             </a>
           </div>
-          <div className="fgrt-pswrd-btn">
+          <div className="fgrt-pswrd-btn" onClick={()=>handleLogin()}>
             <p>Login</p>
           </div>
         </form>

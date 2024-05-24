@@ -1,11 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --bg-light-gray: #e3e9f3;
-  --card-bg-blue:#2250AE;
+  --card-bg-blue: #2250ae;
   --font-bold-black: {
     font-weight: 700;
     font-size: 1.5rem;
     color: #ff3d3d;
-  };
+  }
 }
 
 * {
@@ -17,10 +21,9 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   scrollbar-width: 0;
   visibility: hidden;
   display: none;
