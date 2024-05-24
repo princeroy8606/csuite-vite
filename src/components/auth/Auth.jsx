@@ -10,6 +10,7 @@ import SignUp from "./SignUp";
 const Auth = () => {
   const [currentRightSlide, setCurrentRightSlide] = useState("login");
   const [currentLeftSlide, setCurrentLeftSlide] = useState("forgot-password");
+  const [forgotPasswordEmail, setForgotPasswordEmail] = useState(null);
 
   const toggleAnimation = () => {
     const t1 = gsap.timeline();
@@ -43,7 +44,10 @@ const Auth = () => {
   const renderLeftSlide = () => {
     if (currentLeftSlide === "forgot-password")
       return (
-        <ForgotPassword toggleSlide={(slide) => handleSlideChage(slide)} />
+        <ForgotPassword
+          toggleSlide={(slide) => handleSlideChage(slide)}
+          updateEmail={(email) => setForgotPasswordEmail(email)}
+        />
       );
     if (currentLeftSlide === "signup")
       return <SignUp toggleSlide={(slide) => handleSlideChage(slide)} />;
@@ -56,6 +60,7 @@ const Auth = () => {
       return (
         <EmailSuccessResponse
           toggleSlide={(slide) => handleSlideChage(slide)}
+          email={forgotPasswordEmail}
         />
       );
   };

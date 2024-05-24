@@ -1,11 +1,26 @@
 import React, { useState } from "react";
 import assets from "../assets/assets";
+import { auth } from "../../firebase/firebaseConfig";
+import { sendPasswordResetEmail } from "@firebase/auth";
+import { isValidEmail } from "../../utils/validityCheck";
+import { toast } from "react-toastify";
 
-const ForgotPassword = ({ toggleSlide }) => {
+const ForgotPassword = ({ toggleSlide, updateEmail }) => {
   const [userEmail, setUserEmail] = useState("");
 
-  const handleRequestOtp = () => {
-    toggleSlide("email-response");
+  const handleRequestOtp = async () => {
+    if (isValidEmail(userEmail)) {
+      try {
+        const response = await sendPasswordResetEmail(auth, userEmail);
+        console.log(response);
+        updateEmail(userEmail);
+        toggleSlide("email-response");
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      toast.error("Enter valid Email")
+    }
   };
   return (
     <div className="auth-content-right">

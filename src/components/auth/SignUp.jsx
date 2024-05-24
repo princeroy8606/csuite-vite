@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import assets from "../assets/assets";
 import { auth } from "../../firebase/firebaseConfig";
 import { createUserWithEmailAndPassword } from "@firebase/auth";
+import {
+  isStrongPassword,
+  isValidEmail,
+  isValidName,
+} from "../../utils/validityCheck";
 
 const SignUp = ({ toggleSlide }) => {
   const [form, setForm] = useState({
@@ -12,21 +17,36 @@ const SignUp = ({ toggleSlide }) => {
   });
   const [ispasswordConformed, setIspasswordConformed] = useState(false);
   const [errorArray, setErrorArray] = useState([]);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleValueChange = (type, value) => {
+  const handleValueChange = (type, value, isvalid) => {
+    console.log(isvalid);
+    let newArray = [...errorArray];
     setForm({ ...form, [type]: value });
+    if (isvalid && newArray?.includes(type)) {
+      newArray.splice(type, 1);
+      setErrorArray(newArray);
+    }
+    if (!isvalid && !newArray?.includes(type)) {
+      newArray.push(type);
+      setErrorArray(newArray);
+    }
   };
+
+  console.log(errorArray);
 
   const handleSignUp = async () => {
     try {
-      const response = await createUserWithEmailAndPassword(auth,form?.email,form?.password);
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        form?.email,
+        form?.password
+      );
       console.log(response);
     } catch (err) {
       console.log(err);
     }
   };
-
-  console.log(form);
 
   return (
     <div className="auth-content-right">
@@ -45,16 +65,44 @@ const SignUp = ({ toggleSlide }) => {
             type="text"
             placeholder="Name"
             className="login-input"
-            onChange={(e) => handleValueChange("name", e.target.value)}
+            style={{
+              borderColor: errorArray?.includes("name") ? "red" : "gray",
+            }}
+            onChange={(e) =>
+              handleValueChange(
+                "name",
+                e.target.value,
+                isValidName(e.target.value)
+              )
+            }
           />
+          {errorArray?.includes("name") && (
+            <p className="text-[.7rem] text-red-500 font-medium">
+              Enter valid Name
+            </p>
+          )}
         </div>
         <div className="login-input-cnt signup-input-cnt">
           <input
             type="text"
-            placeholder="Phone number, email or username"
+            placeholder="Email"
             className="login-input"
-            onChange={(e) => handleValueChange("phone", e.target.value)}
+            style={{
+              borderColor: errorArray?.includes("email") ? "red" : "gray",
+            }}
+            onChange={(e) =>
+              handleValueChange(
+                "email",
+                e.target.value,
+                isValidEmail(e.target.value)
+              )
+            }
           />
+          {errorArray?.includes("email") && (
+            <p className="text-[.7rem] text-red-500 font-medium">
+              Enter valid Email
+            </p>
+          )}
           <img
             src={assets.Images.mail_icon}
             alt="mail-icon"
@@ -63,20 +111,35 @@ const SignUp = ({ toggleSlide }) => {
         </div>
         <div className="login-input-cnt signup-input-cnt">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
             className="login-input"
-            onChange={(e) => handleValueChange("password", e.target.value)}
+            style={{
+              borderColor: errorArray?.includes("password") ? "red" : "gray",
+            }}
+            onChange={(e) =>
+              handleValueChange(
+                "password",
+                e.target.value,
+                isStrongPassword(e.target.value)
+              )
+            }
           />
+          {errorArray?.includes("password") && (
+            <p className="text-[.7rem] text-red-500 font-medium">
+              Enter strong password with at least 8 characters
+            </p>
+          )}
           <img
             src={assets.Images.Lock_Vector}
             alt="mail-icon"
             className="input-absolute-img"
+            onClick={() => setShowPassword(!showPassword)}
           />
         </div>
         <div className="login-input-cnt signup-input-cnt">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Conform password"
             className="login-input"
           />
@@ -84,6 +147,7 @@ const SignUp = ({ toggleSlide }) => {
             src={assets.Images.Lock_Vector}
             alt="mail-icon"
             className="input-absolute-img"
+            onClick={() => setShowPassword(!showPassword)}
           />
         </div>
         <div className="fgrt-pswrd-btn" onClick={() => handleSignUp()}>

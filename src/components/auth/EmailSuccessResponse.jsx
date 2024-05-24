@@ -1,7 +1,12 @@
 import React from "react";
 import assets from "../assets/assets";
+import { useNavigate } from "react-router-dom";
 
-const EmailSuccessResponse = ({toggleSlide}) => {
+const EmailSuccessResponse = ({ toggleSlide, email }) => {
+  const navigate = useNavigate();
+  const handleRedirectToMail = () => {
+    window.location.href = `mailto:${email}`
+  };
   return (
     <div className="auth-content-right">
       <div className="auth-logo-cnt">
@@ -21,7 +26,7 @@ const EmailSuccessResponse = ({toggleSlide}) => {
         </h2>
       </div>
       {/* button --> to ---> gmail */}
-      <div className="gmail-button">
+      <div className="gmail-button" onClick={() => handleRedirectToMail()}>
         <h3>Open my gmail</h3>
       </div>
       <div className="mail-sent-msg-cnt">
