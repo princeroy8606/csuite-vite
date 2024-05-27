@@ -37,7 +37,7 @@ const Login = ({ toggleSlide }) => {
             <input
               type="text"
               placeholder="Email or username"
-              className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-100 rounded-md font-semibold text-base text-black focus:outline-none"
+              className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-50 rounded-md font-semibold text-base text-black focus:outline-none"
             />
             <img
               src={assets.Images.mail_icon}
@@ -49,7 +49,7 @@ const Login = ({ toggleSlide }) => {
             <input
               type="password"
               placeholder="Password"
-              className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-100 rounded-md font-semibold text-base text-black focus:outline-none"
+              className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-50 rounded-md font-semibold text-base text-black focus:outline-none"
             />
             <img
               src={assets.Images.Lock_Vector}

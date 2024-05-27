@@ -66,7 +66,7 @@ const SignUp = ({ toggleSlide }) => {
           <input
             type="text"
             placeholder="Name"
-            className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-100 rounded-md font-semibold text-base text-black focus:outline-none"
+            className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-semibold text-base text-black focus:outline-none"
             style={{
               borderColor: errorArray?.includes("name") ? "red" : "gray",
             }}
@@ -88,7 +88,7 @@ const SignUp = ({ toggleSlide }) => {
           <input
             type="text"
             placeholder="Email"
-            className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-100 rounded-md font-semibold text-base text-black focus:outline-none"
+            className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-semibold text-base text-black focus:outline-none"
             style={{
               borderColor: errorArray?.includes("email") ? "red" : "gray",
             }}
@@ -115,7 +115,7 @@ const SignUp = ({ toggleSlide }) => {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
-            className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-100 rounded-md font-semibold text-base text-black focus:outline-none"
+            className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-semibold text-base text-black focus:outline-none"
             style={{
               borderColor: errorArray?.includes("password") ? "red" : "gray",
             }}
@@ -143,7 +143,7 @@ const SignUp = ({ toggleSlide }) => {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Conform password"
-            className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-100 rounded-md font-semibold text-base text-black focus:outline-none"
+            className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-semibold text-base text-black focus:outline-none"
           />
           <img
             src={assets.Images.Lock_Vector}
@@ -167,28 +167,28 @@ const SignUp = ({ toggleSlide }) => {
         <div className="w-[40%] h-[1.5px] bg-gray-600"  /> <p className="font-semibold"> or </p> <div className="w-[40%] h-[1.5px] bg-gray-600"  />{" "}
       </div>
       <div className="w-[70%] flex items-center justify-around gap-2">
-          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-500 rounded-md text-base font-medium cursor-pointer">
+          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
             <img
               src={assets.Images.Google}
               alt="Google"
               className="w-full h-full object-contain p-3"
             />
           </div>
-          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-500 rounded-md text-base font-medium cursor-pointer">
+          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
             <img
               src={assets.Images.Microsoft}
               alt="Microsoft"
               className="w-full h-full object-contain p-3"
             />
           </div>
-          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-500 rounded-md text-base font-medium cursor-pointer">
+          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
             <img
               src={assets.Images.Apple}
               alt="Apple"
               className="w-full h-full object-contain p-3"
             />
           </div>
-          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-500 rounded-md text-base font-medium cursor-pointer">
+          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
             <img
               src={assets.Images.LinkedIn}
               alt="LinkedIn"
