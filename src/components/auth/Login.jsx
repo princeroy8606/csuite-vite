@@ -74,8 +74,7 @@ const Login = ({ toggleSlide }) => {
           </div>
           <div
             className="w-full h-[2.8rem] rounded-lg relative flex items-center justify-center cursor-pointer text-[1.5rem] font-medium text-white bg-[#2250AE] "
-            // onClick={() => handleLogin()}
-            onClick={()=>navigate('/reset-password')}
+            onClick={() => handleLogin()}
           >
             <p>Login</p>
           </div>
