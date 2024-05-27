@@ -24,7 +24,7 @@ const ForgotPassword = ({ toggleSlide, updateEmail }) => {
   };
   return (
     <div className="w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around pt-8">
-      <div className="w-full h-7/10 flex flex-col items-center justify-between">
+      <div className="w-full h-7/10 flex flex-col items-center justify-between ">
         <div className="w-20 h-20 rounded-full p-4 bg-light-gray flex items-center justify-center">
           <img
             src={assets.Images.CSuiteLogo}
@@ -32,7 +32,7 @@ const ForgotPassword = ({ toggleSlide, updateEmail }) => {
             className="w-full h-full object-contain"
           />
         </div>
-        <div className="md:max-w-[80%] max-w-[90%] h-4/5 flex flex-col items-center justify-between">
+        <div className="md:max-w-[70%] max-w-[80%] h-[80%] flex flex-col items-center justify-between">
           <h1 className="text-[2rem] font-semibold mb-4 md:mb-0 md:text-[2.5rem]">
             Forgot Password ?
           </h1>
@@ -49,7 +49,7 @@ const ForgotPassword = ({ toggleSlide, updateEmail }) => {
             <input
               type="text"
               placeholder="Enter your email"
-              className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-100 rounded-md font-semibold text-base text-black focus:outline-none"
+              className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold md:text-base text-black focus:outline-none"
               onChange={(e) => setUserEmail(e.target.value)}
             />
             <img

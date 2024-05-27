@@ -121,7 +121,7 @@ const Auth = () => {
 
   return (
     <div className="w-screen h-screen bg-gray-200 flex items-center justify-center">
-      <div className="relative w-[90%] h-[90%] bg-white rounded-[2rem] shadow-custom flex overflow-hidden md:w-[70%]">
+      <div className="relative w-full h-full bg-white  shadow-custom flex overflow-hidden md:w-[70%] md:h-[90%] md:rounded-[2rem]">
         <div
           id="animation-fromLeft"
           className="absolute left-0 w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around z-0 md:w-[60%]"

@@ -32,12 +32,12 @@ const Login = ({ toggleSlide }) => {
         <p className="text-[1rem] font-medium text-gray-600 text-center mb-4 md:text-lg  md:mb-0">
           Empower Your Journey:Where Professionalism <br /> Meets Progress
         </p>
-        <form className="w-[90%] md:w-[80%]">
+        <form className="w-[100%] md:w-[80%]">
           <div className="relative w-full h-12 mb-4">
             <input
               type="text"
               placeholder="Email or username"
-              className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-50 rounded-md font-semibold text-base text-black focus:outline-none"
+              className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold md:text-base text-black focus:outline-none"
             />
             <img
               src={assets.Images.mail_icon}
@@ -49,7 +49,7 @@ const Login = ({ toggleSlide }) => {
             <input
               type="password"
               placeholder="Password"
-              className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-50 rounded-md font-semibold text-base text-black focus:outline-none"
+              className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-medium text-base text-black focus:outline-none"
             />
             <img
               src={assets.Images.Lock_Vector}
@@ -82,29 +82,29 @@ const Login = ({ toggleSlide }) => {
           <p className="font-semibold"> or </p>{" "}
           <div className="w-[40%] h-[1.5px] bg-gray-600" />{" "}
         </div>
-        <div className="w-[70%] flex items-center justify-around gap-2">
-          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-500 rounded-md text-base font-medium cursor-pointer">
+        <div className="w-full md:w-[70%] flex items-center justify-around gap-2">
+          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
             <img
               src={assets.Images.Google}
               alt="Google"
               className="w-full h-full object-contain p-3"
             />
           </div>
-          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-500 rounded-md text-base font-medium cursor-pointer">
+          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
             <img
               src={assets.Images.Microsoft}
               alt="Microsoft"
               className="w-full h-full object-contain p-3"
             />
           </div>
-          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-500 rounded-md text-base font-medium cursor-pointer">
+          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md font-normal md:font-semibold md:text-base cursor-pointer">
             <img
               src={assets.Images.Apple}
               alt="Apple"
               className="w-full h-full object-contain p-3"
             />
           </div>
-          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-500 rounded-md text-base font-medium cursor-pointer">
+          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md font-normal md:font-semibold md:text-base cursor-pointer">
             <img
               src={assets.Images.LinkedIn}
               alt="LinkedIn"

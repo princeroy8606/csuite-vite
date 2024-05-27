@@ -61,14 +61,14 @@ const SignUp = ({ toggleSlide }) => {
       <p className="text-[1rem] font-medium text-gray-600 text-center mb-4 md:text-lg  md:mb-0">
         Let’s get started with your account
       </p>
-      <form className="w-[90%] md:w-[80%]">
+      <form className="w-[90%] md:w-[70%]">
         <div className="relative w-full h-12 mb-4 ">
           <input
             type="text"
             placeholder="Name"
-            className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-semibold text-base text-black focus:outline-none"
+            className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold md:text-base text-black focus:outline-none"
             style={{
-              borderColor: errorArray?.includes("name") ? "red" : "gray",
+              borderColor: errorArray?.includes("name") ? "red" : "#C7C7C7",
             }}
             onChange={(e) =>
               handleValueChange(
@@ -88,9 +88,9 @@ const SignUp = ({ toggleSlide }) => {
           <input
             type="text"
             placeholder="Email"
-            className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-semibold text-base text-black focus:outline-none"
+            className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold md:text-base text-black focus:outline-none"
             style={{
-              borderColor: errorArray?.includes("email") ? "red" : "gray",
+              borderColor: errorArray?.includes("email") ? "red" : "#C7C7C7",
             }}
             onChange={(e) =>
               handleValueChange(
@@ -115,9 +115,9 @@ const SignUp = ({ toggleSlide }) => {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
-            className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-semibold text-base text-black focus:outline-none"
+            className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold md:text-base text-black focus:outline-none"
             style={{
-              borderColor: errorArray?.includes("password") ? "red" : "gray",
+              borderColor: errorArray?.includes("password") ? "red" : "#C7C7C7",
             }}
             onChange={(e) =>
               handleValueChange(
@@ -143,7 +143,7 @@ const SignUp = ({ toggleSlide }) => {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Conform password"
-            className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-semibold text-base text-black focus:outline-none"
+            className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold md:text-base text-black focus:outline-none"
           />
           <img
             src={assets.Images.Lock_Vector}
@@ -161,41 +161,48 @@ const SignUp = ({ toggleSlide }) => {
       </div>
       <div className="mt-5 text-gray-600">
         Already have an account?{" "}
-        <a onClick={() => toggleSlide("login")} className="text-blue-600 hover:underline cursor-pointer">Log in</a>
+        <a
+          onClick={() => toggleSlide("login")}
+          className="text-blue-600 hover:underline cursor-pointer"
+        >
+          Log in
+        </a>
       </div>
       <div className="w-3/5 flex items-center justify-between mt-5 text-[#666666]">
-        <div className="w-[40%] h-[1.5px] bg-gray-600"  /> <p className="font-semibold"> or </p> <div className="w-[40%] h-[1.5px] bg-gray-600"  />{" "}
+        <div className="w-[40%] h-[1.5px] bg-gray-600" />{" "}
+        <p className="font-semibold"> or </p>{" "}
+        <div className="w-[40%] h-[1.5px] bg-gray-600" />{" "}
       </div>
-      <div className="w-[70%] flex items-center justify-around gap-2">
-          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
-            <img
-              src={assets.Images.Google}
-              alt="Google"
-              className="w-full h-full object-contain p-3"
-            />
-          </div>
-          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
-            <img
-              src={assets.Images.Microsoft}
-              alt="Microsoft"
-              className="w-full h-full object-contain p-3"
-            />
-          </div>
-          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
-            <img
-              src={assets.Images.Apple}
-              alt="Apple"
-              className="w-full h-full object-contain p-3"
-            />
-          </div>
-          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
-            <img
-              src={assets.Images.LinkedIn}
-              alt="LinkedIn"
-              className="w-full h-full object-contain p-3"
-            />
-          </div>
+      <div className="w-full md:w-[70%]  flex items-center justify-around gap-2">
+        <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
+          <img
+            src={assets.Images.Google}
+            alt="Google"
+            className="w-full h-full object-contain p-3"
+          />
         </div>
+        <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
+          <img
+            src={assets.Images.Microsoft}
+            alt="Microsoft"
+            className="w-full h-full object-contain p-3"
+          />
+        </div>
+        <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
+          <img
+            src={assets.Images.Apple}
+            alt="Apple"
+            className="w-full h-full object-contain p-3"
+          />
+        </div>
+        <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
+          <img
+            src={assets.Images.LinkedIn}
+            alt="LinkedIn"
+            className="w-full h-full object-contain p-3"
+          />
+        </div>
+      </div>
     </div>
   );
 };
