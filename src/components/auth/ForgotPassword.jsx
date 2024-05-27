@@ -19,55 +19,70 @@ const ForgotPassword = ({ toggleSlide, updateEmail }) => {
         console.log(error);
       }
     } else {
-      toast.error("Enter valid Email")
+      toast.error("Enter valid Email");
     }
   };
   return (
-    <div className="auth-content-right">
-      <div className="fgrt-pswrd-top-cnt">
-        <div className="auth-logo-cnt">
+    <div className="w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around pt-8">
+      <div className="w-full h-7/10 flex flex-col items-center justify-between">
+        <div className="w-20 h-20 rounded-full p-4 bg-light-gray flex items-center justify-center">
           <img
             src={assets.Images.CSuiteLogo}
             alt="logo"
-            className="auth-logo-img"
+            className="w-full h-full object-contain"
           />
         </div>
-        <div className="frgt-pswrd-center-cnt">
-          <h1 className="msg-title-text">Forgot Password ?</h1>
+        <div className="md:max-w-[80%] max-w-[90%] h-4/5 flex flex-col items-center justify-between">
+          <h1 className="text-[2rem] font-semibold mb-4 md:mb-0 md:text-[2.5rem]">
+            Forgot Password ?
+          </h1>
           <img
             src={assets.Images.Lock}
             alt="forgot-password"
-            className="auth-mail-img"
+            className="max-w-[50%] h-[25%] object-contain md:mt-8"
           />
-          <h2 className="msg-content-text">
+          <h2 className="text-[1rem] font-medium text-gray-600 text-center mb-4 md:text-lg  md:mb-0">
             Don't worry , it happens to the best of us <br /> Type your email to
             reset your password
           </h2>
-          <div className="login-input-cnt">
+          <div className="relative w-full h-12 mb-4">
             <input
               type="text"
               placeholder="Enter your email"
-              className="login-input"
+              className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-100 rounded-md font-semibold text-base text-black focus:outline-none"
+              onChange={(e) => setUserEmail(e.target.value)}
             />
             <img
               src={assets.Images.mail_icon}
               alt="mail-icon"
-              className="input-absolute-img"
+              className="absolute w-6 h-full object-contain right-4 top-0 cursor-pointer p-1"
             />
           </div>
-          <div className="fgrt-pswrd-btn" onClick={() => handleRequestOtp()}>
+          <div
+            className="w-full h-[2.8rem] rounded-lg relative flex items-center justify-center cursor-pointer text-[1.5rem] font-medium text-white bg-[#2250AE] "
+            onClick={() => handleRequestOtp()}
+          >
             <p>Sent</p>
             <img
               src={assets.Images.mail_icon}
               alt="mail-icon"
-              className="input-absolute-img"
+              className="absolute w-6 h-full object-contain right-4 top-0 cursor-pointer p-1"
             />
           </div>
         </div>
       </div>
-      <div className="mail-sent-msg-cnt" style={{ justifySelf: "flex-end" }}>
-        <h2 className="msg-content-text signup">
-          Remember Password ? <a onClick={() => toggleSlide("login")}>Log in</a>
+      <div
+        className="w-[70%] h-auto flex flex-col items-center justify-around"
+        style={{ justifySelf: "flex-end" }}
+      >
+        <h2 className="text-[1rem] font-medium text-gray-600 text-center mb-4 md:text-lg  md:mb-0 signup">
+          Remember Password ?{" "}
+          <a
+            onClick={() => toggleSlide("login")}
+            className="text-blue-600 hover:underline cursor-pointer"
+          >
+            Log in
+          </a>
         </h2>
       </div>
     </div>

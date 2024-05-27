@@ -20,13 +20,13 @@ const Auth = () => {
       0
     );
     t1.to(".auth-content-left", { xPercent: 150, duration: 0.5 }, 0);
-    t1.to("#animation-fromLeft", { xPercent: 0, duration: 0.5, zIndex: 5 }, 0);
+    t1.to("#animation-fromLeft", { xPercent: 0, duration: 0.5, zIndex: 10 }, 0);
   };
 
   const toggleAnimationBack = () => {
     const t1 = gsap.timeline();
     t1.to("#animation-fromLeft", { xPercent: 10, duration: 0.5, zIndex: 0 }, 0);
-    t1.to("#animation-fromRight", { xPercent: 0, duration: 0.5, zIndex: 5 }, 0);
+    t1.to("#animation-fromRight", { xPercent: 0, duration: 0.5, zIndex: 10 }, 0);
     t1.to(".auth-content-left", { xPercent: 0, duration: 0.5 }, 0);
   };
 
@@ -120,36 +120,39 @@ const Auth = () => {
   }, []);
 
   return (
-    <div className="auth-container">
-      <div className="auth-content-container">
-        <div id="animation-fromLeft" className="auth-left-cnt">
+    <div className="w-screen h-screen bg-gray-200 flex items-center justify-center">
+      <div className="relative w-[90%] h-[90%] bg-white rounded-[2rem] shadow-custom flex overflow-hidden md:w-[70%]">
+        <div
+          id="animation-fromLeft"
+          className="absolute left-0 w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around z-0 md:w-[60%]"
+        >
           {renderLeftSlide()}
         </div>
-        <div className="auth-content-left">
-          <div className="auth-bg-svg-cnt">
+        <div className="auth-content-left w-2/5 h-full flex-col items-center justify-around z-10 bg-card-bg-blue hidden md:flex ">
+          <div className="relative w-[90%] h-[80%] flex overflow-y-hidden">
             <img
               src={assets.Images.Auth_Marquee_1}
               alt="login-svg"
-              className="auth-bg-svg"
+              className="auth-bg-svg absolute right-[-110%] w-full h-full scale-0 opacity-0 object-contain"
             />
             <img
               src={assets.Images.Auth_Marquee_3}
               alt="login-svg"
-              className="auth-bg-svg"
+              className="auth-bg-svg absolute right-[-110%] w-full h-full scale-0 opacity-0 object-contain"
             />
             <img
               src={assets.Images.Auth_Marquee_2}
               alt="login-svg"
-              className="auth-bg-svg"
+              className="auth-bg-svg absolute right-[-110%] w-full h-full scale-0 opacity-0 object-contain"
             />
           </div>
-          <div className="animated-toggle-bar">
-            <div className="circle-1 " />
-            <div className="circle-1 circle-2" />
-            <div className="circle-1 circle-3" />
+          <div className="relative w-16 h-2 flex justify-between px-[0.1rem]">
+            <div className="circle-1 w-2 h-2 rounded-full bg-white absolute " />
+            <div className="w-2 h-2 rounded-full bg-white absolute left-6 top-0 circle-1" />
+            <div className="w-2 h-2 rounded-full bg-white absolute left-[3rem] top-0 circle-1" />
           </div>
         </div>
-        <div id="animation-fromRight" className="auth-right-cnt">
+        <div id="animation-fromRight" className=" w-full md:w-[60%] h-full z-10 ">
           {renderRightSlide()}
         </div>
       </div>

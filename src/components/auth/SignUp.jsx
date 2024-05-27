@@ -49,22 +49,24 @@ const SignUp = ({ toggleSlide }) => {
   };
 
   return (
-    <div className="auth-content-right">
-      <div className="auth-logo-cnt">
+    <div className="w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around p-4">
+      <div className="w-20 h-20 rounded-full p-4 bg-light-gray flex items-center justify-center">
         <img
           src={assets.Images.CSuiteLogo}
           alt="logo"
-          className="auth-logo-img"
+          className="w-full h-full object-contain"
         />
       </div>
-      <h2 className="msg-title-text">Sign Up</h2>
-      <p className="msg-content-text">Let’s get started with your account</p>
-      <form className="login-form signup-form">
-        <div className="login-input-cnt signup-input-cnt">
+      <h2 className="text-[2.5rem] font-semibold mb-4 md:mb-0">Sign Up</h2>
+      <p className="text-[1rem] font-medium text-gray-600 text-center mb-4 md:text-lg  md:mb-0">
+        Let’s get started with your account
+      </p>
+      <form className="w-[70%]">
+        <div className="relative w-full h-12 mb-4 ">
           <input
             type="text"
             placeholder="Name"
-            className="login-input"
+            className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-100 rounded-md font-semibold text-base text-black focus:outline-none"
             style={{
               borderColor: errorArray?.includes("name") ? "red" : "gray",
             }}
@@ -82,11 +84,11 @@ const SignUp = ({ toggleSlide }) => {
             </p>
           )}
         </div>
-        <div className="login-input-cnt signup-input-cnt">
+        <div className="relative w-full h-12 mb-4 ">
           <input
             type="text"
             placeholder="Email"
-            className="login-input"
+            className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-100 rounded-md font-semibold text-base text-black focus:outline-none"
             style={{
               borderColor: errorArray?.includes("email") ? "red" : "gray",
             }}
@@ -109,11 +111,11 @@ const SignUp = ({ toggleSlide }) => {
             className="input-absolute-img"
           />
         </div>
-        <div className="login-input-cnt signup-input-cnt">
+        <div className="relative w-full h-12 mb-4 ">
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
-            className="login-input"
+            className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-100 rounded-md font-semibold text-base text-black focus:outline-none"
             style={{
               borderColor: errorArray?.includes("password") ? "red" : "gray",
             }}
@@ -137,11 +139,11 @@ const SignUp = ({ toggleSlide }) => {
             onClick={() => setShowPassword(!showPassword)}
           />
         </div>
-        <div className="login-input-cnt signup-input-cnt">
+        <div className="relative w-full h-12 mb-4 ">
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Conform password"
-            className="login-input"
+            className="w-full h-full px-4 py-2 border-2 border-gray-500 bg-blue-100 rounded-md font-semibold text-base text-black focus:outline-none"
           />
           <img
             src={assets.Images.Lock_Vector}
@@ -150,47 +152,50 @@ const SignUp = ({ toggleSlide }) => {
             onClick={() => setShowPassword(!showPassword)}
           />
         </div>
-        <div className="fgrt-pswrd-btn" onClick={() => handleSignUp()}>
-          <p>Sign Up</p>
-        </div>
       </form>
-      <div className="signup">
+      <div
+        className="w-[70%] h-11 rounded-md relative flex items-center justify-center cursor-pointer text-xl font-medium text-white bg-[var(--card-bg-blue)] py-6"
+        onClick={() => handleSignUp()}
+      >
+        <p>Sign Up</p>
+      </div>
+      <div className="mt-5 text-gray-600">
         Already have an account?{" "}
-        <a onClick={() => toggleSlide("login")}>Log in</a>
+        <a onClick={() => toggleSlide("login")} className="text-blue-600 hover:underline cursor-pointer">Log in</a>
       </div>
-      <div className="line-cnt">
-        <div className="line" /> <p> or </p> <div className="line" />{" "}
+      <div className="w-3/5 flex items-center justify-between mt-5 text-[#666666]">
+        <div className="w-[40%] h-[1.5px] bg-gray-600"  /> <p className="font-semibold"> or </p> <div className="w-[40%] h-[1.5px] bg-gray-600"  />{" "}
       </div>
-      <div className="login-social">
-        <div className="login-social-btn">
-          <img
-            src={assets.Images.Google}
-            alt="Google"
-            className="login-social-btn-img"
-          />
+      <div className="w-[70%] flex items-center justify-around gap-2">
+          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-500 rounded-md text-base font-medium cursor-pointer">
+            <img
+              src={assets.Images.Google}
+              alt="Google"
+              className="w-full h-full object-contain p-3"
+            />
+          </div>
+          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-500 rounded-md text-base font-medium cursor-pointer">
+            <img
+              src={assets.Images.Microsoft}
+              alt="Microsoft"
+              className="w-full h-full object-contain p-3"
+            />
+          </div>
+          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-500 rounded-md text-base font-medium cursor-pointer">
+            <img
+              src={assets.Images.Apple}
+              alt="Apple"
+              className="w-full h-full object-contain p-3"
+            />
+          </div>
+          <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-500 rounded-md text-base font-medium cursor-pointer">
+            <img
+              src={assets.Images.LinkedIn}
+              alt="LinkedIn"
+              className="w-full h-full object-contain p-3"
+            />
+          </div>
         </div>
-        <div className="login-social-btn">
-          <img
-            src={assets.Images.Microsoft}
-            alt="Microsoft"
-            className="login-social-btn-img"
-          />
-        </div>
-        <div className="login-social-btn">
-          <img
-            src={assets.Images.Apple}
-            alt="Apple"
-            className="login-social-btn-img"
-          />
-        </div>
-        <div className="login-social-btn">
-          <img
-            src={assets.Images.LinkedIn}
-            alt="LinkedIn"
-            className="login-social-btn-img"
-          />
-        </div>
-      </div>
     </div>
   );
 };

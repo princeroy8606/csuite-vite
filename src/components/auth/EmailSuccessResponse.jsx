@@ -8,15 +8,15 @@ const EmailSuccessResponse = ({ toggleSlide, email }) => {
     window.location.href = `mailto:${email}`
   };
   return (
-    <div className="auth-content-right">
-      <div className="auth-logo-cnt">
+    <div className="w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around pt-8">
+      <div className="w-20 h-20 rounded-full p-4 bg-light-gray flex items-center justify-center">
         <img
           src={assets.Images.CSuiteLogo}
           alt="logo"
-          className="auth-logo-img"
+          className="w-full h-full object-contain"
         />
       </div>
-      <img src={assets.Images.MailSent} alt="logo" className="auth-mail-img" />
+      <img src={assets.Images.MailSent} alt="logo" className="max-w-[50%] h-[25%] object-contain md:mt-8" />
       <div className="mail-sent-msg-cnt">
         <h2 className="msg-title-text">Email Sent</h2>
         <h2 className="msg-content-text">
