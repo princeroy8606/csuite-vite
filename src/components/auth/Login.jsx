@@ -32,7 +32,7 @@ const Login = ({ toggleSlide }) => {
         <p className="text-[1rem] font-medium text-gray-600 text-center mb-4 md:text-lg  md:mb-0">
           Empower Your Journey:Where Professionalism <br /> Meets Progress
         </p>
-        <form className="w-[80%]">
+        <form className="w-[90%] md:w-[80%]">
           <div className="relative w-full h-12 mb-4">
             <input
               type="text"
@@ -57,15 +57,15 @@ const Login = ({ toggleSlide }) => {
               className="absolute w-6 h-full object-contain right-4 top-0 cursor-pointer p-1"
             />
           </div>
-          <div className="flex justify-between mb-5 text-gray-600">
+          <div className="flex justify-between mb-5 text-gray-600 items-center">
             <label className="flex h-8 justify-around items-center text-base">
               <input type="checkbox" className="checkbox" />
-              <p>Remember me</p>
+              <p className="text-[.8rem] md:text-[1rem]">Remember me</p>
             </label>
             <a
               href="#"
               onClick={() => toggleSlide("forgot-password")}
-              className="text-blue-600 hover:underline"
+              className="text-blue-600 hover:underline text-[.8rem] md:text-[1rem]"
             >
               Forgot Password?
             </a>

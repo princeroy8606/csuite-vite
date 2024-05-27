@@ -61,7 +61,7 @@ const SignUp = ({ toggleSlide }) => {
       <p className="text-[1rem] font-medium text-gray-600 text-center mb-4 md:text-lg  md:mb-0">
         Let’s get started with your account
       </p>
-      <form className="w-[70%]">
+      <form className="w-[90%] md:w-[80%]">
         <div className="relative w-full h-12 mb-4 ">
           <input
             type="text"
@@ -154,7 +154,7 @@ const SignUp = ({ toggleSlide }) => {
         </div>
       </form>
       <div
-        className="w-[70%] h-11 rounded-md relative flex items-center justify-center cursor-pointer text-xl font-medium text-white bg-[var(--card-bg-blue)] py-6"
+        className="w-[90%] md:w-[70%] h-11 rounded-md relative flex items-center justify-center cursor-pointer text-xl font-medium text-white bg-[var(--card-bg-blue)] py-6"
         onClick={() => handleSignUp()}
       >
         <p>Sign Up</p>
