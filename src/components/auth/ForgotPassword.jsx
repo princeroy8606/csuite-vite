@@ -23,27 +23,27 @@ const ForgotPassword = ({ toggleSlide, updateEmail }) => {
     }
   };
   return (
-    <div className="auth-content-right">
-      <div className="fgrt-pswrd-top-cnt">
-        <div className="auth-logo-cnt">
+    <div className="flex flex-col items-center justify-around w-full h-full bg-white rounded-r-2xl p-8">
+      <div className="flex flex-col items-center justify-between w-full h-4/5">
+        <div className="w-20 h-20 rounded-full p-4 bg-gray-100 flex items-center justify-center">
           <img
             src={assets.Images.CSuiteLogo}
             alt="logo"
-            className="auth-logo-img"
-          />
+            className="w-full h-full object-contain"          />
         </div>
-        <div className="frgt-pswrd-center-cnt">
-          <h1 className="msg-title-text">Forgot Password ?</h1>
+        <div className="flex flex-col items-center justify-between w-11/12 h-4/5">
+          <h1 className="text-4xl font-bold text-black">Forgot Password ?</h1>
+
           <img
             src={assets.Images.Lock}
             alt="forgot-password"
-            className="auth-mail-img"
+            className="max-w-1/2 h-1/5 object-contain mt-8"
           />
-          <h2 className="msg-content-text">
+          <h2 className="text-lg font-medium text-gray-600 text-center">
             Don't worry , it happens to the best of us <br /> Type your email to
             reset your password
           </h2>
-          <div className="login-input-cnt">
+          <div className="relative w-full h-12 mb-4">
             <input
               type="text"
               placeholder="Enter your email"
@@ -52,22 +52,24 @@ const ForgotPassword = ({ toggleSlide, updateEmail }) => {
             <img
               src={assets.Images.mail_icon}
               alt="mail-icon"
-              className="input-absolute-img"
+              className="w-full h-full p-4 border-2 border-gray-600 bg-blue-50 rounded-lg font-semibold text-black outline-none"
             />
           </div>
-          <div className="fgrt-pswrd-btn" onClick={() => handleRequestOtp()}>
-            <p>Sent</p>
+          <div
+            className="w-full h-11 rounded-lg flex items-center justify-center cursor-pointer text-xl text-white font-medium bg-blue-500 p-6" onClick={handleRequestOtp}>            
+            <p>SenD</p>
             <img
               src={assets.Images.mail_icon}
               alt="mail-icon"
-              className="input-absolute-img"
+              className="absolute w-6 h-full object-contain right-4 top-0 cursor-pointer p-1"
             />
           </div>
         </div>
       </div>
-      <div className="mail-sent-msg-cnt" style={{ justifySelf: "flex-end" }}>
-        <h2 className="msg-content-text signup">
-          Remember Password ? <a onClick={() => toggleSlide("login")}>Log in</a>
+      <div className="flex flex-col items-center justify-around w-3/5" style={{ justifySelf: "flex-end" }}>
+        <h2 className="text-lg font-medium text-gray-600 text-center">
+          Remember Password?
+          <a onClick={() => toggleSlide("login")} className="text-blue-700 cursor-pointer">Log in</a>
         </h2>
       </div>
     </div>
