@@ -50,19 +50,21 @@ const SignUp = ({ toggleSlide }) => {
 
   return (
     <div className="w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around p-4">
-      <div className="w-20 h-20 rounded-full p-4 bg-light-gray flex items-center justify-center">
+      <div className="w-20 h-20 rounded-full p-4 bg-light-gray flex items-center justify-center tablet-h:w-14 tablet-h:h-14 laptop-h:w-20 laptop-h:h-20">
         <img
           src={assets.Images.CSuiteLogo}
           alt="logo"
           className="w-full h-full object-contain"
         />
       </div>
-      <h2 className="text-[2.5rem] font-semibold mb-4 md:mb-0">Sign Up</h2>
-      <p className="text-[1rem] font-medium text-gray-600 text-center mb-4 md:text-lg  md:mb-0">
+      <h2 className="text-[2.5rem] font-semibold mb-4 md:mb-0 tablet-h:text-[1.5rem] laptop-h:text-[2.5rem]">
+        Sign Up
+      </h2>
+      <p className="text-[1rem] font-medium text-gray-600 text-center mb-4 tablet-h:text-[0.8rem] laptop-h:text-lg  laptop-h:mb-4">
         Let’s get started with your account
       </p>
-      <form className="w-[90%] md:w-[70%]">
-        <div className="relative w-full h-12 mb-4 ">
+      <form className="w-[90%] laptop-h:w-[70%] laptop-w:w-[70%]">
+        <div className="relative w-full min-h-10 h-[6.5vh] max-h-[3rem] mb-4">
           <input
             type="text"
             placeholder="Name"
@@ -84,7 +86,7 @@ const SignUp = ({ toggleSlide }) => {
             </p>
           )}
         </div>
-        <div className="relative w-full h-12 mb-4 ">
+        <div className="relative w-full min-h-10 h-[6.5vh] max-h-[3rem] mb-4">
           <input
             type="text"
             placeholder="Email"
@@ -111,7 +113,7 @@ const SignUp = ({ toggleSlide }) => {
             className="input-absolute-img"
           />
         </div>
-        <div className="relative w-full h-12 mb-4 ">
+        <div className="relative w-full min-h-10 h-[6.5vh] max-h-[3rem] mb-4">
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
@@ -139,7 +141,7 @@ const SignUp = ({ toggleSlide }) => {
             onClick={() => setShowPassword(!showPassword)}
           />
         </div>
-        <div className="relative w-full h-12 mb-4 ">
+        <div className="relative w-full min-h-10 h-[6.5vh] max-h-[3rem] mb-4">
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Conform password"
@@ -154,7 +156,7 @@ const SignUp = ({ toggleSlide }) => {
         </div>
       </form>
       <div
-        className="w-[90%] md:w-[70%] h-11 rounded-md relative flex items-center justify-center cursor-pointer text-xl font-medium text-white bg-[var(--card-bg-blue)] py-6"
+        className="w-[90%] laptop-w:w-[70%] laptop-h:w-[70%] h-[5rem] max-h-11 rounded-md relative flex items-center justify-center cursor-pointer text-xl font-medium text-white bg-[var(--card-bg-blue)] py-6 tablet-h:py-3 laptop-h:py-6"
         onClick={() => handleSignUp()}
       >
         <p>Sign Up</p>
@@ -173,29 +175,29 @@ const SignUp = ({ toggleSlide }) => {
         <p className="font-semibold"> or </p>{" "}
         <div className="w-[40%] h-[1.5px] bg-gray-600" />{" "}
       </div>
-      <div className="w-full md:w-[70%]  flex items-center justify-around gap-2">
-        <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
+      <div className="w-full laptop-w:w-[70%]  flex items-center justify-around gap-2">
+        <div className="max-w-12 max-h-12 h-[6.5vh] m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
           <img
             src={assets.Images.Google}
             alt="Google"
             className="w-full h-full object-contain p-3"
           />
         </div>
-        <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
+        <div className="max-w-12 max-h-12 h-[6.5vh] m-1  bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
           <img
             src={assets.Images.Microsoft}
             alt="Microsoft"
             className="w-full h-full object-contain p-3"
           />
         </div>
-        <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
+        <div className="max-w-12 max-h-12 h-[6.5vh] m-1 bg-transparent border-2 border-gray-300 rounded-md font-normal md:font-semibold md:text-base cursor-pointer">
           <img
             src={assets.Images.Apple}
             alt="Apple"
             className="w-full h-full object-contain p-3"
           />
         </div>
-        <div className="w-12 h-12 m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
+        <div className="max-w-12 max-h-12 h-[6.5vh] m-1 bg-transparent border-2 border-gray-300 rounded-md font-normal md:font-semibold md:text-base cursor-pointer">
           <img
             src={assets.Images.LinkedIn}
             alt="LinkedIn"

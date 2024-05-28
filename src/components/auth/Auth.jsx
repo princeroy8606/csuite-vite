@@ -26,7 +26,11 @@ const Auth = () => {
   const toggleAnimationBack = () => {
     const t1 = gsap.timeline();
     t1.to("#animation-fromLeft", { xPercent: 10, duration: 0.5, zIndex: 0 }, 0);
-    t1.to("#animation-fromRight", { xPercent: 0, duration: 0.5, zIndex: 10 }, 0);
+    t1.to(
+      "#animation-fromRight",
+      { xPercent: 0, duration: 0.5, zIndex: 10 },
+      0
+    );
     t1.to(".auth-content-left", { xPercent: 0, duration: 0.5 }, 0);
   };
 
@@ -121,15 +125,15 @@ const Auth = () => {
 
   return (
     <div className="w-screen h-screen bg-gray-200 flex items-center justify-center">
-      <div className="relative w-full h-full bg-white  shadow-custom flex overflow-hidden md:w-[70%] md:h-[90%] md:rounded-[2rem]">
+      <div className="relative w-full h-full bg-white  shadow-custom flex overflow-hidden laptop-w:max-w-[70%] laptop-w:max-h-[90%] laptop-w:rounded-2xl">
         <div
           id="animation-fromLeft"
-          className="absolute left-0 w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around z-0 md:w-[60%]"
+          className="absolute left-0 w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around z-0 laptop-w:max-w-[60%] "
         >
           {renderLeftSlide()}
         </div>
-        <div className="auth-content-left w-2/5 h-full flex-col items-center justify-around z-10 bg-card-bg-blue hidden md:flex ">
-          <div className="relative w-[90%] h-[80%] flex overflow-y-hidden">
+        <div className="auth-content-left w-[40%] h-full flex-col items-center justify-around z-10 bg-card-bg-blue hidden laptop-w:flex tablet-w:w-[40%]">
+          <div className="relative w-[80%] h-[80%] flex overflow-y-hidden">
             <img
               src={assets.Images.Auth_Marquee_1}
               alt="login-svg"
@@ -152,7 +156,10 @@ const Auth = () => {
             <div className="w-2 h-2 rounded-full bg-white absolute left-[3rem] top-0 circle-1" />
           </div>
         </div>
-        <div id="animation-fromRight" className=" w-full md:w-[60%] h-full z-10 ">
+        <div
+          id="animation-fromRight"
+          className=" w-full laptop-w:w-[60%] h-full z-10 flex items-center justify-center bg-white"
+        >
           {renderRightSlide()}
         </div>
       </div>
