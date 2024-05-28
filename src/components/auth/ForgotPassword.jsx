@@ -9,20 +9,18 @@ const ForgotPassword = ({ toggleSlide, updateEmail }) => {
   const [userEmail, setUserEmail] = useState("");
 
   const handleRequestOtp = async () => {
-    // if (isValidEmail(userEmail)) {
-    //   try {
-    //     const response = await sendPasswordResetEmail(auth, userEmail);
-    //     console.log(response);
-    //     updateEmail(userEmail);
-    //     toggleSlide("email-response");
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // } else {
-    //   toast.error("Enter valid Email");
-    // }
-    toggleSlide("email-response");
-
+    if (isValidEmail(userEmail)) {
+      try {
+        const response = await sendPasswordResetEmail(auth, userEmail);
+        console.log(response);
+        updateEmail(userEmail);
+        toggleSlide("email-response");
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      toast.error("Enter valid Email");
+    }
   };
   return (
     <div className="w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around pt-8 pb-8">

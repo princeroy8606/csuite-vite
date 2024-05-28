@@ -1,23 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import assets from "../assets/assets";
 import { auth } from "../../firebase/firebaseConfig";
 import { signInWithEmailAndPassword } from "@firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { isStrongPassword, isValidEmail } from "../../utils/validityCheck";
 
 const Login = ({ toggleSlide }) => {
   const navigate = useNavigate();
+  const [form, setForm] = useState({ email: null, password: null });
+  const [error, setError] = useState({ email: false, password: false });
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleValueChange = (type, value, valid) => {
+    setForm({ ...form, [type]: value });
+    if (valid && error[type] === true) setError({ ...error, [type]: false });
+    if (!valid && error[type] === false) setError({ ...error, [type]: true });
+  };
+
   const handleLogin = async () => {
+    const newError = {};
+    if (!isValidEmail(form.email)) {
+      newError.email = true;
+    }
+    if (!isStrongPassword(form.password)) {
+      newError.password = true;
+    }
+    if (Object.keys(newError).length > 0) {
+      setError(newError);
+      return;
+    }
     try {
       const response = await signInWithEmailAndPassword(
         auth,
-        "princeroy8606@gmail.com",
-        "123456"
+        form.email,
+        form.password
       );
       console.log(response);
+      toast.success("Login Success");
     } catch (err) {
       console.log(err);
     }
   };
+
+  console.log(error);
   return (
     <div className="w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around py-14 tablet-h:py-8 tablet-w:w-[60%] laptop-w:w-[80%]">
       <div className="w-20 h-20 rounded-full p-4 bg-light-gray flex items-center justify-center tablet-h:w-14 tablet-h:h-14 laptop-h:w-20 laptop-h:h-20">
@@ -39,8 +65,23 @@ const Login = ({ toggleSlide }) => {
             <input
               type="text"
               placeholder="Email or username"
+              style={{
+                borderColor: error.email ? "red" : "#C7C7C7",
+              }}
+              onChange={(e) =>
+                handleValueChange(
+                  "email",
+                  e.target.value,
+                  isValidEmail(e.target.value)
+                )
+              }
               className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal laptop-h:font-semibold laptop-h:text-base text-black focus:outline-none"
             />
+            {error.email && (
+              <p className="text-[.7rem] text-red-500 font-medium text-left">
+                Enter valid Email
+              </p>
+            )}
             <img
               src={assets.Images.mail_icon}
               alt="mail-icon"
@@ -49,14 +90,30 @@ const Login = ({ toggleSlide }) => {
           </div>
           <div className="relative w-full min-h-10 h-[6.5vh] max-h-[3rem] mb-4">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
+              style={{
+                borderColor: error.password ? "red" : "#C7C7C7",
+              }}
+              onChange={(e) =>
+                handleValueChange(
+                  "password",
+                  e.target.value,
+                  isStrongPassword(e.target.value)
+                )
+              }
               className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold md:text-base text-black focus:outline-none"
             />
+            {error.password && (
+              <p className="text-[.7rem] text-red-500 font-medium text-left">
+                Enter valid password
+              </p>
+            )}
             <img
               src={assets.Images.Lock_Vector}
               alt="mail-icon"
               className="absolute w-6 h-full object-contain right-4 top-0 cursor-pointer p-1"
+              onClick={()=>setShowPassword(!showPassword)}
             />
           </div>
           <div className="flex justify-between mb-5 text-gray-600 items-center">

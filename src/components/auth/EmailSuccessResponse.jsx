@@ -32,7 +32,7 @@ const EmailSuccessResponse = ({ toggleSlide, email }) => {
         </h2>
       </div>
       {/* button --> to ---> gmail */}
-      <div className="gmail-button" onClick={() => handleRedirectToMail()}>
+      <div className="gmail-button cursor-pointer" onClick={() => handleRedirectToMail()}>
         <h3>Open my gmail</h3>
       </div>
       <div></div>

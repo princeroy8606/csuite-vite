@@ -7,15 +7,15 @@ import {
   isValidEmail,
   isValidName,
 } from "../../utils/validityCheck";
+import { toast } from "react-toastify";
 
 const SignUp = ({ toggleSlide }) => {
   const [form, setForm] = useState({
     email: "",
     password: null,
     name: "",
-    phoneNumber: "",
   });
-  const [ispasswordConformed, setIspasswordConformed] = useState(false);
+  const [ispasswordConformed, setIspasswordConformed] = useState(null);
   const [errorArray, setErrorArray] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -34,17 +34,35 @@ const SignUp = ({ toggleSlide }) => {
   };
 
   console.log(errorArray);
+  const checkPasswordConform = (e) => {
+    if (e.target.value === form.password) {
+      setIspasswordConformed(true);
+    } else {
+      setIspasswordConformed(false);
+    }
+  };
 
   const handleSignUp = async () => {
-    try {
-      const response = await createUserWithEmailAndPassword(
-        auth,
-        form?.email,
-        form?.password
-      );
-      console.log(response);
-    } catch (err) {
-      console.log(err);
+    const newErrorArray = [...errorArray];
+    Object.entries(form).forEach(([key, value]) => {
+      if (value === null || value === "") {
+        if (!newErrorArray?.includes(key)) newErrorArray.push(key);
+      }
+    });
+    setErrorArray(newErrorArray);
+    if (newErrorArray.length < 1 && ispasswordConformed) {
+      try {
+        const response = await createUserWithEmailAndPassword(
+          auth,
+          form?.email,
+          form?.password
+        );
+        console.log(response);
+        toast.success("Signup Success");
+      } catch (err) {
+        console.log(err);
+        toast.error(err);
+      }
     }
   };
 
@@ -145,8 +163,17 @@ const SignUp = ({ toggleSlide }) => {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Conform password"
+            onChange={(e) => checkPasswordConform(e)}
+            style={{
+              borderColor: ispasswordConformed === false ? "red" : "#C7C7C7",
+            }}
             className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold md:text-base text-black focus:outline-none"
           />
+          {ispasswordConformed === false && (
+            <p className="text-[.7rem] text-red-500 font-medium">
+              Password Missmatch
+            </p>
+          )}
           <img
             src={assets.Images.Lock_Vector}
             alt="mail-icon"
