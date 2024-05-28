@@ -49,7 +49,7 @@ const SignUp = ({ toggleSlide }) => {
   };
 
   return (
-    <div className="w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around py-14 tablet-h:pt-8 tablet-h:pb-8 ">
+    <div className="w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around py-4">
       <div className="w-20 h-20 rounded-full p-4 bg-light-gray flex items-center justify-center tablet-h:w-14 tablet-h:h-14 laptop-h:w-20 laptop-h:h-20">
         <img
           src={assets.Images.CSuiteLogo}
