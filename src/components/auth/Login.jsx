@@ -51,7 +51,7 @@ const Login = ({ toggleSlide }) => {
             <input
               type="password"
               placeholder="Password"
-              className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md laptop-h:font-semibold laptop-h:text-base text-black focus:outline-none"
+              className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold md:text-base text-black focus:outline-none"
             />
             <img
               src={assets.Images.Lock_Vector}

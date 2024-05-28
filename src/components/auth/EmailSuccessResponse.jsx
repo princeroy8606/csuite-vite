@@ -25,7 +25,7 @@ const EmailSuccessResponse = ({ toggleSlide, email }) => {
         <h2 className="text-[2.5rem] font-semibold mb-4 md:mb-0 tablet-h:text-[1.5rem] laptop-h:text-[2.5rem]">
           Email Sent
         </h2>
-        <h2 className="text-[1rem] font-medium text-gray-600 text-center mb-4 tablet-h:text-[0.8rem] laptop-h:text-lg  laptop-h:mb-4">
+        <h2 className="text-[1rem] font-medium text-gray-600 text-center mb-4 tablet-h:text-[0.8rem]  laptop-w:text-lg  laptop-h:mb-4">
           We have sent an email to <br /> username@gmail.com with a link to
           reset <br />
           your password
