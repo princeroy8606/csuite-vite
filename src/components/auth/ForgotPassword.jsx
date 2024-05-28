@@ -35,7 +35,7 @@ const ForgotPassword = ({ toggleSlide, updateEmail }) => {
           />
         </div>
         <div className="w-[80%] tablet-w:w-[60%] laptop-w:w-[60%] h-[70%] laptop-h:h-[80%] flex flex-col items-center justify-between mt-4">
-          <h1 className="text-[2.5rem] font-semibold mb-4 md:mb-0 tablet-h:text-[1.5rem] laptop-h:text-[2.5rem]">
+          <h1 className="text-[2.5rem] font-semibold mb-4 md:mb-0 tablet-h:text-[1.5rem] laptop-w:text-[2.5rem] ">
             Forgot Password ?
           </h1>
           <img

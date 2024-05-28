@@ -63,7 +63,7 @@ const SignUp = ({ toggleSlide }) => {
       <p className="text-[1rem] font-medium text-gray-600 text-center mb-4 tablet-h:text-[0.8rem] laptop-h:text-lg  laptop-h:mb-4">
         Let’s get started with your account
       </p>
-      <form className="w-[90%] laptop-h:w-[70%] laptop-w:w-[70%]">
+      <form className="w-[90%] laptop-w:w-[70%]">
         <div className="relative w-full min-h-10 h-[6.5vh] max-h-[3rem] mb-4">
           <input
             type="text"
@@ -156,7 +156,7 @@ const SignUp = ({ toggleSlide }) => {
         </div>
       </form>
       <div
-        className="w-[90%] laptop-w:w-[70%] laptop-h:w-[70%] h-[5rem] max-h-11 rounded-md relative flex items-center justify-center cursor-pointer text-xl font-medium text-white bg-[var(--card-bg-blue)] py-6 tablet-h:py-3 laptop-h:py-6"
+        className="w-[90%] laptop-w:w-[70%] h-[5rem] max-h-11 rounded-md relative flex items-center justify-center cursor-pointer text-xl font-medium text-white bg-[var(--card-bg-blue)] py-6 tablet-h:py-3 laptop-h:py-6"
         onClick={() => handleSignUp()}
       >
         <p>Sign Up</p>

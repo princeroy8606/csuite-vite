@@ -19,7 +19,7 @@ const Login = ({ toggleSlide }) => {
     }
   };
   return (
-    <div className="w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around pt-8 pb-8 tablet-w:w-[60%] laptop-h:w-[80%]">
+    <div className="w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around pt-8 pb-8 tablet-w:w-[60%] laptop-w:w-[80%]">
       <div className="w-20 h-20 rounded-full p-4 bg-light-gray flex items-center justify-center tablet-h:w-14 tablet-h:h-14 laptop-h:w-20 laptop-h:h-20">
         <img
           src={assets.Images.CSuiteLogo}
@@ -34,7 +34,7 @@ const Login = ({ toggleSlide }) => {
         <p className="text-[1rem] font-medium text-gray-600 text-center mb-4 tablet-h:text-[0.8rem] laptop-h:text-lg  laptop-h:mb-4">
           Empower Your Journey:Where Professionalism <br /> Meets Progress
         </p>
-        <form className="w-[100%] laptop-h:w-[80%]">
+        <form className="w-[100%] laptop-w:w-[80%]">
           <div className="relative w-full min-h-10 h-[6.5vh] max-h-[3rem] mb-4">
             <input
               type="text"
