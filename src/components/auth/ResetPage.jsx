@@ -53,16 +53,16 @@ const ResetPage = () => {
             className="w-full h-full object-contain"
           />
         </div>
-        <div className="w-[90%] h-[80%] flex flex-col items-center justify-around md:w-[40%] ">
+        <div className="w-[90%] h-[80%] flex flex-col items-center justify-around tablet-w:w-[40%] ">
           <img
             src={assets.Images.Lock}
             alt="forgot-password"
-            className="max-w-[50%] h-[25%] object-contain md:mt-8"
+            className="max-w-[50%] h-[25%] object-contain tablet-w:mt-8"
           />
-          <h1 className="text-[2.5rem] font-semibold mb-4 md:mb-0">
+          <h1 className="text-[2.5rem] font-semibold mb-4 tablet-w:mb-0">
             Change Password
           </h1>
-          <p className="text-[1rem] font-medium text-gray-600 text-center mb-4 md:text-lg  md:mb-0">
+          <p className="text-[1rem] font-medium text-gray-600 text-center mb-4 tablet-w:text-lg  tablet-w:mb-0">
             Update your password with a new one
           </p>
 
@@ -71,7 +71,7 @@ const ResetPage = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="New Password"
-                className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold md:text-base text-black focus:outline-none"
+                className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold tablet-w:text-base text-black focus:outline-none"
               />
               <img
                 src={assets.Images.Lock_Vector}
@@ -84,7 +84,7 @@ const ResetPage = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Conform password"
-                className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold md:text-base text-black focus:outline-none"
+                className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold tablet-w:text-base text-black focus:outline-none"
               />
               <img
                 src={assets.Images.Lock_Vector}
