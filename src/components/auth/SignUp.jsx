@@ -207,28 +207,28 @@ const SignUp = ({ toggleSlide }) => {
           <img
             src={assets.Images.Google}
             alt="Google"
-            className="w-full h-full object-contain p-3"
+            className="w-full h-full object-contain p-3 grayscale hover:grayscale-0"
           />
         </div>
         <div className="max-w-12 max-h-12 h-[6.5vh] m-1  bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
           <img
             src={assets.Images.Microsoft}
             alt="Microsoft"
-            className="w-full h-full object-contain p-3"
+            className="w-full h-full object-contain p-3 grayscale hover:grayscale-0"
           />
         </div>
         <div className="max-w-12 max-h-12 h-[6.5vh] m-1 bg-transparent border-2 border-gray-300 rounded-md font-normal md:font-semibold md:text-base cursor-pointer">
           <img
             src={assets.Images.Apple}
             alt="Apple"
-            className="w-full h-full object-contain p-3"
+            className="w-full h-full object-contain p-3 grayscale hover:grayscale-0"
           />
         </div>
         <div className="max-w-12 max-h-12 h-[6.5vh] m-1 bg-transparent border-2 border-gray-300 rounded-md font-normal md:font-semibold md:text-base cursor-pointer">
           <img
             src={assets.Images.LinkedIn}
             alt="LinkedIn"
-            className="w-full h-full object-contain p-3"
+            className="w-full h-full object-contain p-3 grayscale hover:grayscale-0"
           />
         </div>
       </div>
