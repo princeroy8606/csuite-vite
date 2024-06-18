@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import assets from "../assets/assets";
 import { auth } from "../../firebase/firebaseConfig";
+import { toast } from "react-toastify";
 import {
   updatePassword,
   reauthenticateWithCredential,
@@ -21,8 +22,9 @@ const ResetPage = () => {
   };
 
   const handleChangePassword = async () => {
+    console.log("action")
     if (form.newPassword !== form.confirmPassword) {
-      setMessage("Passwords do not match!");
+      toast.warning("Passwords do not match!");
       return;
     }
     try {
@@ -32,14 +34,11 @@ const ResetPage = () => {
         form.email,
         form.newPassword
       );
-
       await reauthenticateWithCredential(user, credential);
-
       await updatePassword(user, form.newPassword);
-
-      setMessage("Password updated successfully!");
+      toast.success("Password updated successfully!");
     } catch (err) {
-      setMessage(`Error: ${err.message}`);
+      toast.error(`Error: ${err.message}`);
     }
   };
 
@@ -71,6 +70,9 @@ const ResetPage = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="New Password"
+                onChange={(e) =>
+                  handleValueChange("newPassword", e.target.value)
+                }
                 className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold tablet-w:text-base text-black focus:outline-none"
               />
               <img
@@ -84,6 +86,9 @@ const ResetPage = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Conform password"
+                onChange={(e) =>
+                  handleValueChange("confirmPassword", e.target.value)
+                }
                 className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold tablet-w:text-base text-black focus:outline-none"
               />
               <img
@@ -93,7 +98,10 @@ const ResetPage = () => {
                 onClick={() => setShowPassword(!showPassword)}
               />
             </div>
-            <div className="w-full h-11 rounded-md relative flex items-center justify-center cursor-pointer text-xl font-medium text-white bg-[var(--card-bg-blue)] py-6">
+            <div
+              onClick={() => handleChangePassword()}
+              className="w-full h-11 rounded-md relative flex items-center justify-center cursor-pointer text-xl font-medium text-white bg-[var(--card-bg-blue)] py-6"
+            >
               <p>Update Password</p>
             </div>
           </form>
