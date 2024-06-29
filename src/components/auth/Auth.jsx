@@ -124,42 +124,36 @@ const Auth = () => {
   }, []);
 
   return (
-    <div className="w-screen h-screen bg-gray-200 flex items-center justify-center">
-      <div className="relative w-full h-full bg-white  shadow-custom flex overflow-hidden laptop-w:max-w-[70%] laptop-w:max-h-[90%] laptop-w:rounded-2xl">
-        <div
-          id="animation-fromLeft"
-          className="absolute left-0 w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around z-0 laptop-w:max-w-[60%] "
-        >
+    <div className="screen-container">
+      <div className="main-container">
+        <div id="animation-fromLeft" className="left-panel">
           {renderLeftSlide()}
         </div>
-        <div className="auth-content-left w-[40%] h-full flex-col items-center justify-around z-10 bg-card-bg-blue hidden laptop-w:flex tablet-w:w-[40%]">
-          <div className="relative w-[80%] h-[80%] flex overflow-y-hidden">
+        <div className="auth-content-left">
+          <div className="image-container">
             <img
               src={assets.Images.Auth_Marquee_1}
               alt="login-svg"
-              className="auth-bg-svg absolute right-[-110%] w-full h-full scale-0 opacity-0 object-contain"
+              className="auth-bg-svg"
             />
             <img
               src={assets.Images.Auth_Marquee_3}
               alt="login-svg"
-              className="auth-bg-svg absolute right-[-110%] w-full h-full scale-0 opacity-0 object-contain"
+              className="auth-bg-svg"
             />
             <img
               src={assets.Images.Auth_Marquee_2}
               alt="login-svg"
-              className="auth-bg-svg absolute right-[-110%] w-full h-full scale-0 opacity-0 object-contain"
+              className="auth-bg-svg"
             />
           </div>
-          <div className="relative w-16 h-2 flex justify-between px-[0.1rem]">
-            <div className="circle-1 w-2 h-2 rounded-full bg-white absolute " />
-            <div className="w-2 h-2 rounded-full bg-white absolute left-6 top-0 circle-1" />
-            <div className="w-2 h-2 rounded-full bg-white absolute left-[3rem] top-0 circle-1" />
+          <div className="circle-container">
+            <div className="circle"></div>
+            <div className="circle circle-2"></div>
+            <div className="circle circle-3"></div>
           </div>
         </div>
-        <div
-          id="animation-fromRight"
-          className=" w-full laptop-w:w-[60%] h-full z-10 flex items-center justify-center bg-white"
-        >
+        <div id="animation-fromRight" className="right-panel">
           {renderRightSlide()}
         </div>
       </div>

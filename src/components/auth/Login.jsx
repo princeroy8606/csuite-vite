@@ -5,6 +5,9 @@ import { signInWithEmailAndPassword } from "@firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { isStrongPassword, isValidEmail } from "../../utils/validityCheck";
+import axios from "axios";
+import { googlePopup } from "../../firebase/auth_google_popup";
+import { signinGithub } from "../../firebase/auth_github_execute";
 
 const Login = ({ toggleSlide }) => {
   const navigate = useNavigate();
@@ -31,43 +34,61 @@ const Login = ({ toggleSlide }) => {
       return;
     }
     try {
-      const response = await signInWithEmailAndPassword(
-        auth,
-        form.email,
-        form.password
+      const response = await axios.post(
+        "https://quiz-project-d15l.onrender.com/api/login/",
+        {
+          email: form.email,
+          password: form.password,
+        }
       );
       console.log(response);
       toast.success("Login Success");
+      // Navigate to another page or save the token
+      navigate("/dashboard");
     } catch (err) {
       console.log(err);
+      toast.error("Login Failed");
     }
+    // try {
+    //   const response = await signInWithEmailAndPassword(
+    //     auth,
+    //     form.email,
+    //     form.password
+    //   );
+    //   console.log(response);
+    //   toast.success("Login Success");
+    // } catch (err) {
+    //   console.log(err);
+    // }
   };
 
-  console.log(error);
+  const handleSocialLogin = async (type) => {
+    let res;
+    if (type === "google") {
+      res = await googlePopup();
+    }
+    if (type === "github") {
+      res = await signinGithub();
+    }
+    console.log(res);
+  };
+
   return (
-    <div className="w-full h-full bg-white rounded-r-2xl flex flex-col items-center justify-around py-14 tablet-h:py-8 tablet-w:w-[60%] laptop-w:w-[80%]">
-      <div className="w-20 h-20 rounded-full p-4 bg-light-gray flex items-center justify-center tablet-h:w-14 tablet-h:h-14 laptop-h:w-20 laptop-h:h-20">
-        <img
-          src={assets.Images.CSuiteLogo}
-          alt="logo"
-          className="w-full h-full object-contain"
-        />
+    <div className="login-container">
+      <div className="logo-container">
+        <img src={assets.Images.CSuiteLogo} alt="logo" className="logo-img" />
       </div>
-      <div className="w-[90%] h-[90%] flex flex-col items-center justify-around text-center laptop-w:h-[auto] ">
-        <h2 className="text-[2.5rem] font-semibold mb-4 md:mb-0 tablet-h:text-[1.5rem] laptop-h:text-[2.5rem]">
-          Hello Again!
-        </h2>
-        <p className="text-[1rem] font-medium text-gray-600 text-center mb-4 tablet-h:text-[0.8rem] laptop-h:text-lg  laptop-h:mb-4">
-          Empower Your Journey:Where Professionalism <br /> Meets Progress
+      <div className="login-details">
+        <h2 className="login-title">Hello Again!</h2>
+        <p className="login-subtitle">
+          Empower Your Journey: Where Professionalism <br /> Meets Progress
         </p>
-        <form className="w-[100%] laptop-w:w-[80%]">
-          <div className="relative w-full min-h-10 h-[6.5vh] max-h-[3rem] mb-4">
+        <form className="login-form">
+          <div className="input-container">
             <input
               type="text"
               placeholder="Email or username"
-              style={{
-                borderColor: error.email ? "red" : "#C7C7C7",
-              }}
+              style={{ borderColor: error.email ? "red" : "#C7C7C7" }}
               onChange={(e) =>
                 handleValueChange(
                   "email",
@@ -75,26 +96,20 @@ const Login = ({ toggleSlide }) => {
                   isValidEmail(e.target.value)
                 )
               }
-              className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal laptop-h:font-semibold laptop-h:text-base text-black focus:outline-none"
+              className="input"
             />
-            {error.email && (
-              <p className="text-[.7rem] text-red-500 font-medium text-left">
-                Enter valid Email
-              </p>
-            )}
+            {error.email && <p className="input-error">Enter valid Email</p>}
             <img
               src={assets.Images.mail_icon}
               alt="mail-icon"
-              className="absolute w-6 h-full object-contain right-4 top-0 cursor-pointer p-1"
+              className="icon"
             />
           </div>
-          <div className="relative w-full min-h-10 h-[6.5vh] max-h-[3rem] mb-4">
+          <div className="input-container">
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              style={{
-                borderColor: error.password ? "red" : "#C7C7C7",
-              }}
+              style={{ borderColor: error.password ? "red" : "#C7C7C7" }}
               onChange={(e) =>
                 handleValueChange(
                   "password",
@@ -102,81 +117,82 @@ const Login = ({ toggleSlide }) => {
                   isStrongPassword(e.target.value)
                 )
               }
-              className="w-full h-full px-4 py-2 border-2 border-gray-300 bg-blue-50 rounded-md font-normal md:font-semibold md:text-base text-black focus:outline-none"
+              className="input"
             />
             {error.password && (
-              <p className="text-[.7rem] text-red-500 font-medium text-left">
-                Enter valid password
-              </p>
+              <p className="input-error">Enter valid password</p>
             )}
             <img
               src={assets.Images.Lock_Vector}
               alt="mail-icon"
-              className="absolute w-6 h-full object-contain right-4 top-0 cursor-pointer p-1"
-              onClick={()=>setShowPassword(!showPassword)}
+              className="icon"
+              onClick={() => setShowPassword(!showPassword)}
             />
           </div>
-          <div className="flex justify-between mb-5 text-gray-600 items-center">
-            <label className="flex h-8 justify-around items-center text-base">
+          <div className="options-container">
+            <label className="checkbox-label">
               <input type="checkbox" className="checkbox" />
-              <p className="text-[.8rem] md:text-[1rem]">Remember me</p>
+              <p className="checkbox-text">Remember me</p>
             </label>
             <a
               href="#"
               onClick={() => toggleSlide("forgot-password")}
-              className="text-blue-600 hover:underline text-[.8rem] md:text-[1rem]"
+              className="forgot-password-link"
             >
               Forgot Password?
             </a>
           </div>
-          <div
-            className="w-full h-[2.8rem] rounded-lg relative flex items-center justify-center cursor-pointer text-[1.5rem] font-medium text-white bg-[#2250AE] "
-            onClick={() => handleLogin()}
-          >
+          <div className="login-button" onClick={() => handleLogin()}>
             <p>Login</p>
           </div>
         </form>
-        <div className="w-3/5 flex items-center justify-between mt-5 text-[#666666]">
-          <div className="w-[40%] h-[1.5px] bg-gray-600" />{" "}
-          <p className="font-semibold"> or </p>{" "}
-          <div className="w-[40%] h-[1.5px] bg-gray-600" />{" "}
+        <div className="divider-container">
+          <div className="divider"></div>
+          <p className="divider-text">or</p>
+          <div className="divider"></div>
         </div>
-        <div className="w-full  flex items-center justify-around gap-2">
-          <div className="max-w-12 max-h-12 h-[6.5vh] m-1 bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
+        <div className="social-login-container">
+          <div
+            className="social-login-button"
+            onClick={() => handleSocialLogin("google")}
+          >
             <img
               src={assets.Images.Google}
               alt="Google"
-              className="w-full h-full object-contain p-3 grayscale hover:grayscale-0"
+              className="social-login-icon"
             />
           </div>
-          <div className="max-w-12 max-h-12 h-[6.5vh] m-1  bg-transparent border-2 border-gray-300 rounded-md text-base font-medium cursor-pointer">
+          <div className="social-login-button">
             <img
               src={assets.Images.Microsoft}
               alt="Microsoft"
-              className="w-full h-full object-contain p-3 grayscale hover:grayscale-0"
+              className="social-login-icon"
             />
           </div>
-          <div className="max-w-12 max-h-12 h-[6.5vh] m-1 bg-transparent border-2 border-gray-300 rounded-md font-normal md:font-semibold md:text-base cursor-pointer">
+          <div className="social-login-button">
             <img
               src={assets.Images.Apple}
               alt="Apple"
-              className="w-full h-full object-contain p-3 grayscale hover:grayscale-0"
+              className="social-login-icon"
             />
           </div>
-          <div className="max-w-12 max-h-12 h-[6.5vh] m-1 bg-transparent border-2 border-gray-300 rounded-md font-normal md:font-semibold md:text-base cursor-pointer">
+          <div
+            className="social-login-button"
+            onClick={() => handleSocialLogin("github")}
+          >
             <img
               src={assets.Images.LinkedIn}
               alt="LinkedIn"
-              className="w-full h-full object-contain p-3 grayscale hover:grayscale-0"
+              className="social-login-icon"
             />
           </div>
         </div>
-        <div className="mt-5 text-gray-600">
+        <div className="signup-link-container">
           Don’t have an account?{" "}
           <a
             href="#"
             onClick={() => toggleSlide("signup")}
-            className="text-blue-600 hover:underline cursor-pointer"
+            className="signup-link"
           >
             Sign up.
           </a>
