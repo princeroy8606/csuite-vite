@@ -8,6 +8,8 @@ import { isStrongPassword, isValidEmail } from "../../utils/validityCheck";
 import axios from "axios";
 import { googlePopup } from "../../firebase/auth_google_popup";
 import { signinGithub } from "../../firebase/auth_github_execute";
+import { signinMicrosoft } from "../../firebase/auth_microsoft_execute";
+import { signinLinkedIn } from "../../firebase/auth_linkedIn_execute";
 
 const Login = ({ toggleSlide }) => {
   const navigate = useNavigate();
@@ -68,7 +70,10 @@ const Login = ({ toggleSlide }) => {
       res = await googlePopup();
     }
     if (type === "github") {
-      res = await signinGithub();
+      res = await signinLinkedIn();
+    }
+    if (type === "microsoft") {
+      res = await signinMicrosoft();
     }
     console.log(res);
   };
@@ -162,7 +167,10 @@ const Login = ({ toggleSlide }) => {
               className="social-login-icon"
             />
           </div>
-          <div className="social-login-button">
+          <div
+            className="social-login-button"
+            onClick={() => handleSocialLogin("microsoft")}
+          >
             <img
               src={assets.Images.Microsoft}
               alt="Microsoft"
