@@ -1,0 +1,48 @@
+.create-blog-cnt {
+  width: 100%;
+  height: 34.5rem;
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.blog-details-cnt {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.blog-short-input-cnt {
+  position: relative;
+  width: 30rem;
+  height: 2.5rem;
+}
+
+.blog-short-input {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #e9e9e9;
+  outline: none;
+}
+
+.input-placeholder {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.8rem;
+  background: #ffffff;
+  padding: 0 0.5rem;
+  transition: all 200ms ease-in-out;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.text-editor-cnt{
+  margin-top: 2rem;
+}
+
+.text-editor{
+  height: 10rem;
+}

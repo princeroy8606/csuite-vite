@@ -1,5 +1,5 @@
 import React from "react";
-import assets from "../components/assets/assets";
+import assets from "../../components/assets/assets";
 
 const ReviewElement = () => {
   return (

@@ -1,11 +1,12 @@
 import React from "react";
 import "./reviews.css";
 import ReviewElement from "./ReviewElement";
+import Sidebar from "../Sidebar";
 
 const Reviews = () => {
   return (
     <div className="reviews-page">
-      <div className="demo-sidebar"></div>
+    <Sidebar/>
       <div className="reviews-cnt">
         <div className="demo-top-component"></div>
         <div className="reviews">
