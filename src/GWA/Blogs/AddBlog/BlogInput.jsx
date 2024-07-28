@@ -1,5 +1,5 @@
 import React from "react";
-import "./blogs.css";
+import "../blogs.css";
 
 const BlogInput = ({
   currentFocus,
@@ -11,7 +11,7 @@ const BlogInput = ({
 }) => {
   const checkPlaceholderCondition = () => {
     if (value?.length > 0 || currentFocus === label) return true;
-    if (!value?.length > 0 || currentFocus !== label)   return false;   
+    if (!value?.length > 0 || currentFocus !== label) return false;
   };
 
   return (
