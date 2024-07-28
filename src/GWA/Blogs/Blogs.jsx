@@ -7,7 +7,7 @@ import BlogList from "./BlogList";
 
 const Blogs = () => {
   return (
-    <div className="reviews-page">
+    <div className="reviews-page" style={{height:'fit-content'}}>
       <Sidebar />
       <div className="reviews-cnt">
         <div className="demo-top-component"></div>
