@@ -6,7 +6,7 @@ import Sidebar from "../Sidebar";
 const Reviews = () => {
   return (
     <div className="reviews-page">
-    <Sidebar/>
+      <Sidebar />
       <div className="reviews-cnt">
         <div className="demo-top-component"></div>
         <div className="reviews">
