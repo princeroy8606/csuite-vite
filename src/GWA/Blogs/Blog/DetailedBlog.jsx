@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from '../../Sidebar'
 import Blog from './Blog'
+import PostComment from './PostComment'
 
 const DetailedBlog = () => {
   return (
@@ -13,6 +14,7 @@ const DetailedBlog = () => {
         {/* <AddNewBlog /> */}
         {/* <BlogList /> */}
         <Blog/>
+        <PostComment/>
       </div>
     </div>
   </div>
